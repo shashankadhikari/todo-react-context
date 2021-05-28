@@ -13,25 +13,25 @@ import {TodoContext} from "../context/TodoContext";
 import {ADD_TODO} from "../context/action.types";
 
 const TodoForm = () => {
-    const [todoString,setTodoString] = useState("");
+    const [title,setTitle] = useState("");
     const {dispatch} = useContext(TodoContext);
 
     // here we are firing dispatch
     const handleSubmit = e => {
         e.preventDefault();
-        if (todoString === ""){
+        if (title === ""){
             return alert("Please enter a todo")
         }
 
         const todo = {
-            todoString,
+            title,
             id : v4()
         }
         dispatch({
             type: ADD_TODO,
             payload: todo
         })
-        setTodoString("");
+        setTitle("");
 
     };
 
@@ -47,8 +47,8 @@ const TodoForm = () => {
                 id="todo"
                 placeholder="Your next Todo"
                 //any value that is change in form is gonna set automatically in the state
-                value={todoString}
-                onChange={e => setTodoString(e.target.value)}
+                value={title}
+                onChange={e => setTitle(e.target.value)}
                 />
                 <InputGroupAddon addonType="prepend">
                     <Button

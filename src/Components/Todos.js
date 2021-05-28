@@ -12,7 +12,7 @@ const Todos = () =>{
         <ListGroup className="mt-5 mb-2 items">
             {todos.map(todo =>(
                 <ListGroupItem key={todo.id}>
-                    {todo.todoString}
+                    {todo.title}
                     <span className="float-right"
                     onClick={
                         ()=>{
